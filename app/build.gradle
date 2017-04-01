@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+def buildTime() {
+    def data = new Date();
+    def formateData = data.format("yyyyMMdd");
+    return formateData;
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "www.imooc.com.okhttp"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField("String", "url", "http://www.baidu.com");
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    if (output.outputFile != null && output.outputFile.name.endsWith('.apk')
+                            && 'release'.equals(variant.buildType.name)) {
+                        def apkFile = new File(
+                                output.outputFile.getParent(),
+                                "Mymoney_${variant.flavorName}_v${variant.versionName}_${buildTime()}.apk")
+                        output.outputFile = apkFile
+                    }
+                }
+            }
+        }
+    }
+
+    productFlavors {
+        Develop {
+            buildConfigField("String", "url", "\"http://www.taobao.com\"");
+        }
+        Production {
+            buildConfigField("String", "url", "\"http://www.qq.com\"");
+        }
+    }
+}
+
+repositories {
+    maven {
+        url uri('../repo')
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.facebook.stetho:stetho:1.3.1'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    compile project(':FileDownload')
+    compile project(path: ':http')
+}
