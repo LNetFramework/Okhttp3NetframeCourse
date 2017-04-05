@@ -1,5 +1,7 @@
-package com.imooc;
+package com.imooc.middleware.common;
 
+import com.imooc.middleware.okhttp.OkHttpRequestFactory;
+import com.imooc.middleware.originhttp.OriginHttpRequestFactory;
 import com.imooc.http.HttpMethod;
 import com.imooc.http.HttpRequest;
 import com.imooc.utils.Utills;

@@ -1,4 +1,4 @@
-package com.imooc;
+package com.imooc.middleware.common;
 
 import com.imooc.http.HttpMethod;
 import com.imooc.http.HttpRequest;

@@ -1,4 +1,4 @@
-package com.imooc;
+package com.imooc.middleware.common;
 
 import com.imooc.http.HttpResponse;
 
@@ -8,6 +8,7 @@ import java.util.zip.GZIPInputStream;
 
 /**
  * @author nate
+ *  * 该抽象类主要处理Gzip压缩流相关逻辑
  */
 public abstract class AbstractHttpResponse implements HttpResponse {
 

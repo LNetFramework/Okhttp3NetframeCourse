@@ -1,6 +1,6 @@
 package com.imooc.service;
 
-import com.imooc.HttpRequestProvider;
+import com.imooc.middleware.common.HttpRequestProvider;
 import com.imooc.http.HttpRequest;
 
 import java.io.IOException;

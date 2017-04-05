@@ -1,5 +1,6 @@
-package com.imooc;
+package com.imooc.middleware.originhttp;
 
+import com.imooc.middleware.common.AbstractHttpResponse;
 import com.imooc.http.HttpHeader;
 import com.imooc.http.HttpStatus;
 

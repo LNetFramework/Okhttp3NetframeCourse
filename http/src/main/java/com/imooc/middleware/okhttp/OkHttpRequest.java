@@ -1,5 +1,6 @@
-package com.imooc;
+package com.imooc.middleware.okhttp;
 
+import com.imooc.middleware.common.BufferHttpRequest;
 import com.imooc.http.HttpHeader;
 import com.imooc.http.HttpMethod;
 import com.imooc.http.HttpResponse;

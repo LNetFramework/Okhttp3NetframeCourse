@@ -1,4 +1,4 @@
-package com.imooc;
+package com.imooc.middleware.common;
 
 import com.imooc.http.HttpHeader;
 import com.imooc.http.HttpRequest;
@@ -10,6 +10,7 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * @author nate
+ * 该抽象类主要处理Gzip压缩流相关逻辑
  */
 
 public abstract class AbstractHttpRequest implements HttpRequest {
